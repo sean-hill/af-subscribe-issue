@@ -11,11 +11,7 @@ export class AppComponent {
   public items: FirebaseListObservable<any[]>;
   
   constructor(public af: AngularFire) {
-    this.af.auth.subscribe(auth => {
-      if (auth) {
-        this.items = this.af.database.list('/items');
-      }
-    });
+    this.items = this.af.database.list('/items');
   }
 
   add() {
